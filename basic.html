@@ -1,0 +1,87 @@
+<div id="appName"></div>
+<div id="appVersion"></div>
+<script>
+
+    // ブラウザの名前
+    document.getElementById("appName").innerHTML = navigator.appName;
+    // ブラウザのバージョン
+    document.getElementById("appVersion").innerHTML = navigator.appVersion;
+
+    // 毎回開くとやかましいのでコメントアウト
+    // 警告ダイアログの表示
+    // window.alert("hello");
+    // 新しくウィンドウを開いて指定のファイル・ページを表示する
+    // window.open("write.html");
+
+    // // 変数に代入
+    // num = 5;
+    // console.log(num);
+
+    // name = "田中";
+    // Name = "山岡";
+
+    // console.log(name);
+    // console.log(Name);
+
+    // with:文に対するスコープチェーンの拡張。バグを招くため現在は非推奨。
+    var page3 = "hoge";
+    testWith();
+
+    var employeeInfo = {
+        sei: "田中",
+        mei: "太郎",
+    } 
+
+    console.log(employeeInfo.sei);
+    console.log(employeeInfo.mei);
+
+    // delete演算子。オブジェクトからプロパティを削除する。
+    delete employeeInfo.sei;
+    delete employeeInfo.mei;
+
+    // 削除されたためundefinedに
+    console.log(employeeInfo.sei);
+    console.log(employeeInfo.mei);
+
+    testFunc(1,2);
+
+    // テスト用
+    function testFunc(x, y){
+        "use strict"; // 厳格モード。本来エラーにならないものがエラーになるように
+
+        // 未定義の変数
+        // z = 10; 
+
+        // 拡張禁止オブジェクトへの拡張
+        // var obj = {};
+        // Object.preventExtensions(obj);
+        // obj.x = 5;
+
+        // var num = 100;
+        // delete num; // 変数名や関数名に対してDeleteが使えなくなる。
+
+    }
+
+    // with:文に対するスコープチェーンの拡張。バグを招くため現在は非推奨。
+    function testWith(){
+        //  厳格モードでは使えなくなる。
+        // "use strict";
+
+        var obj = {
+            page1: "Hello",
+            page2: "World", 
+        }
+
+        with(obj){
+            console.log(page1);
+            console.log(page2);
+            console.log(page3); // 存在しないはずのpage3を、外側の変数を呼び出してしまう。
+        }
+        
+        with(obj){
+            console.log(page1);
+            console.log(page2);
+            console.log(page3); // 存在しないはずのpage3を、外側の変数を呼び出してしまう。
+        }
+    };
+</script>

@@ -1,0 +1,55 @@
+
+<script>
+    // 複文（ブロック）
+    {
+        xx = 3;
+        yy = 8;
+        zz = xx + yy;
+    }
+
+    // 変数宣言
+    var xx = 10;
+    var yy = 20;
+    var zz = xx + yy;
+
+    // letは、そのブロックだけで有効となる。
+    var a = 2;
+    let b = 4;
+    {
+        var a = 10;
+        let b = 20; // 上書きされない
+    }
+
+    console.log(a);
+    console.log(b);
+
+    // for文。letを使用することで安全にループ変数を使える。
+    for(let i = 0; i < 10; i++){
+        console.log(i);
+    }
+
+    // 定数宣言
+    const connum = 1;
+    // connum = 100; // エラーになる。
+
+    // 条件分岐
+    // if文
+    var n = 4;
+    if(n < 100){
+        console.log("100より小さい!");
+    } else {
+        console.log("100より大きい!");
+    }
+
+    n = 15;
+    if(n < 10) {
+        console.log("10より小さい！")
+    } else if( n > 20) {
+        console.log("20より大きい！")
+    } else {
+        console.log("normal")
+    }
+
+    // switch文
+
+</script>
