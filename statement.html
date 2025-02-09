@@ -1,4 +1,20 @@
-
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>構文</title>
+</head>
+<body>
+    <h1>生物</h1>
+    <ul>
+        <li>犬</li>
+        <li>猫</li>
+        <li>虎</li>
+        <li>亀</li>
+    </ul>
+</body>
+</html>
 <script>
     // 複文（ブロック）
     {
@@ -51,5 +67,202 @@
     }
 
     // switch文
+    // n = 2;
+    // switch (n) {
+    //     case 1:
+    //         alert("1だよ");
+    //         break;
+    //     case 2:
+    //         alert("2だよ");
+    //         break;
+    //     case 3:
+    //         alert("3だよ");
+    //         break;
+    //     default:
+    //         alert("それ以外");
+    //         break;
+    // }
+
+    // while文（繰り返し）
+    n = 0;
+    while(n < 10) {
+        console.log(n);
+        n++;
+    }
+
+    // for（繰り返し）
+    for(i = 0; i < 10; i++ ){
+        console.log(i);
+    }
+
+    // 配列に対して使用する
+    var array = ["red", "blue", "green"];
+    for(i in array){
+        console.log(array[i]);
+    }
+
+    // オブジェクトに対して使用する
+    var data = {
+        name: "Yamada",
+        age: 26,
+        country: "Japan"
+    }
+
+    for(var d in data) {
+        // key value
+        console.log(d, data[d]);
+    }
+
+    // オブジェクトとは、データ及びそのデータを操作するためのメソッドをまとめたもの。
+    // 車でイメージしてみる
+    // プロパティ：オブジェクトが持つデータ（値）「色」「メーカー」「値段」
+    // メソッド：オブジェクトが持つ機能（関数）「走る」「止まる」
+
+    // オブジェクトの作成
+    const car = {
+        color: "red",
+        type: "TOYOTA",
+        run: function() {
+            console.log("車が走ります！")
+        },
+        stop: function() {
+            console.log("車が止まります！")
+        }
+    }
+
+    // プロパティへのアクセス
+    console.log(car.color);
+    console.log(car.type);
+
+    // メソッド呼び出し
+    car.run();
+    car.stop();
+
+    // オブジェクトのデータを繰り返す
+    for(var c in car) {
+        // key value
+        console.log(c, car[c]);
+    }
+
+    // オブジェクトの属性を調べる
+    // navigator:webページが実行されている環境に関する情報を取得する
+    // 属性として、appName（ブラウザ名）platform（OS名）など。
+    for(var attr in navigator){
+        console.log(attr, navigator[attr]);
+    }
+
+    // オブジェクトの要素を順番に処理する（よくわかんね）
+    var set = new Set();
+    set.add("Tanaka");
+    set.add("Suzuki");
+    for(var val of set){
+        console.log(val);
+    }
+
+    // ループを抜ける（break）
+    for(var i = 0; i < 10; i++){
+        if(i == 7){
+            break;
+        }
+        console.log(i);
+    }
+
+    // label（入れ子になったループを一度に抜けたいときに使用する）
+    console.log("abc_label");
+    abc_label:
+    for(var i = 0; i < 10; i++){
+        for(var j = 0; j < 10; j++){
+            console.log(i + " * 10 + " + j);
+            xx = i * 10 + j;
+            if(xx > 20){
+                // 20より上になったらラベリングした一つ上のforごと抜ける
+                break abc_label;
+            }
+            console.log(xx);
+        }
+    }
+
+    // ループ継続（continue）
+    for(var i = 0; i < 10; i++){
+        // 5をスキップする
+        if(i == 5){
+            continue;
+        }
+        console.log(i);
+    }
+
+    // continue label
+    console.log("abc_continue_label");
+    abc_continue_label:
+    for(var i = 0; i < 10; i++){
+        for(var j = 0; j < 10; j++){
+            console.log(i + " * 10 + " + j);
+            xx = i * 10 + j;
+            if(xx == 55){
+                // 55になったらラベリングしたループの次のループを実行する
+                break abc_continue_label;
+            }
+            console.log(xx);
+        }
+    }
+
+    // ラベル
+    // breakやcontinueで参照する
+    label1:
+    for(var i = 0; i < 10; i++){
+        for(var j = 0; j < 10; j++){
+            console.log(i + " * " + j);
+            if(multiplication(i, j) == 20){
+                console.log("20に到達")
+                break label1;
+            }
+        }
+    }
+
+    // 掛け算
+    function multiplication(x, y){
+        return x * y;
+    }
+
+    // documentオブジェクトとは？
+    // HTML要素を取得する。
+    // DOM操作（HTMLやCSSを参照・書き換え）で使用
+    // DOM：ブラウザがHTMLやXMLの構造を解析して生成する、ツリーで表現したデータモデル。各要素にアクセスして操作が可能。
+    console.log(document);
+    var ul = document.querySelector('ul');
+    var lis = ul.childNodes;
+    console.log(ul);
+    console.log(lis);
+
+    // オブジェクト参照（with）
+    with (document) {
+        console.log(querySelector('ul'));
+    }
+
+    // 例外処理
+    try {
+        var error = "えらー";
+        if(error){
+            // 例外を投げる
+            throw "myException";
+        }
+        // エラー発生時はこの部分はスキップ
+    } catch (e) {
+        // 例外が発生した場合
+        console.log(e);
+    } finally {
+        // 例外発生の有無に限らず実行
+        console.log("finally");
+    }
+
+    // module.js からエクスポートされているものすべてをインポートする
+    // chromeのセキュリティ仕様でローカルファイルのimportはできずエラーに。サーバ立てて対応可能、今回は割愛
+    // import "./module.js";
+
+    // デバッグ
+    for(var i = 0; i < 3; i++){
+        console.log(i);
+        debugger; // 処理が止まり、デバッグモードになる
+    }
 
 </script>
