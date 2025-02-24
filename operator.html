@@ -2,101 +2,134 @@
     <input type="text" name="text1" value="123">
     <input type="button" value="OK" onclick="testFunc()">
 </form>
-
+<a href="javascript:void(0)">～</a>
 <script>
-    function testFunc() {
-        console.log("testFunc!!")
-        // formで送ったvalueは文字列として扱われる
-        console.log(document.form1.text1.value + 4);
-        // Numberで数値に変換する
-        console.log(Number(document.form1.text1.value) + 4);
-    }
+    // function testFunc() {
+    //     console.log("testFunc!!")
+    //     // formで送ったvalueは文字列として扱われる
+    //     console.log(document.form1.text1.value + 4);
+    //     // Numberで数値に変換する
+    //     console.log(Number(document.form1.text1.value) + 4);
+    // }
 
-    // 代入演算子
-    x = 1;
-    y = x;
-    z = "abc";
+    // // 代入演算子
+    // x = 1;
+    // y = x;
+    // z = "abc";
 
-    x = x + 2;
+    // x = x + 2;
 
-    // yとxに5を代入する
-    y = x = 5
-    console.log(x);
-    console.log(y);
-    console.log(z);
+    // // yとxに5を代入する
+    // y = x = 5
+    // console.log(x);
+    // console.log(y);
+    // console.log(z);
 
-    // 算術演算子
-    var a = 3 + 2;
-    var b = 3 - 2;
-    var c = 3 * 2;
-    var d = 3 / 2;
-    var e = 3 % 2;
-    var f = 3 ** 2;
-    var g = "123" + 4;
+    // // 算術演算子
+    // var a = 3 + 2;
+    // var b = 3 - 2;
+    // var c = 3 * 2;
+    // var d = 3 / 2;
+    // var e = 3 % 2;
+    // var f = 3 ** 2;
+    // var g = "123" + 4;
 
-    console.log(a);
-    console.log(b);
-    console.log(c);
-    console.log(d);
-    console.log(e);
-    console.log(f);
-    console.log(g);
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+    // console.log(d);
+    // console.log(e);
+    // console.log(f);
+    // console.log(g);
 
-    a = 5;
-    b = 0;
-    a++; // a = 6
-    console.log(a);
-    console.log(b);
-    a = 5;
-    b = a++; // a = 6, b = 5
-    console.log(a);
-    console.log(b);
-    a = 5;
-    b = ++a; // b = 6, a = 6
-    console.log(a);
-    console.log(b);
+    // a = 5;
+    // b = 0;
+    // a++; // a = 6
+    // console.log(a);
+    // console.log(b);
+    // a = 5;
+    // b = a++; // a = 6, b = 5
+    // console.log(a);
+    // console.log(b);
+    // a = 5;
+    // b = ++a; // b = 6, a = 6
+    // console.log(a);
+    // console.log(b);
 
-    // 比較演算子
-    a = 5;
-    b = 0;
-    if(a == 5){
-        console.log("a==5")
-    }
-    if(b != 5){
-        console.log("b!=5")
-    }
+    // // 比較演算子
+    // a = 5;
+    // b = 0;
+    // if(a == 5){
+    //     console.log("a==5")
+    // }
+    // if(b != 5){
+    //     console.log("b!=5")
+    // }
 
-    a = "123"
-    // 暗黙的に文字列を数値化して判定する
-    if(a == 123){
-        console.log("a==123")
-    }
+    // a = "123"
+    // // 暗黙的に文字列を数値化して判定する
+    // if(a == 123){
+    //     console.log("a==123")
+    // }
 
-    // 論理演算子
-    // AND
-    mon = 10;
-    if((1 < mon ) && (mon <= 10)){
-        console.log("monは1より上かつ10以上")
-    }
+    // // 論理演算子
+    // // AND
+    // mon = 10;
+    // if((1 < mon ) && (mon <= 10)){
+    //     console.log("monは1より上かつ10以上")
+    // }
 
-    // OR
-    mon = 5;
-    if((1 < mon ) || (mon <= 10)){
-        console.log("monは1より上、または10以下")
-    }
+    // // OR
+    // mon = 5;
+    // if((1 < mon ) || (mon <= 10)){
+    //     console.log("monは1より上、または10以下")
+    // }
     
-    // !mon
-    if(!(mon == 10)){
-        console.log("monは10ではない")
+    // // !mon
+    // if(!(mon == 10)){
+    //     console.log("monは10ではない")
+    // }
+
+    // // 条件演算子
+    // a = (mon > 1) ? "big": "small";
+    // console.log(a);
+
+    // // カンマ演算子
+    // for (var i = 0, j = 0; i < 10; i++) {
+    //     console.log(i);
+    //     console.log(j);
+    // }
+
+    // delete演算子
+    var obj = {
+        name: 'yamada',
+        age: 32,
+    };
+    console.log(obj.name);
+    console.log(obj.age);
+    // 未定義になる
+    delete obj.name;
+    delete obj.age;
+    console.log(obj.name);
+    console.log(obj.age);
+
+    // 値の型を返す
+    console.log(typeof(true));
+    console.log(typeof("abc"));
+    console.log(typeof(123.45));
+    console.log(typeof(new Object()));
+    console.log(typeof(function() {}));
+
+    // オブジェクトのプロパティに存在するか
+    if ('appName' in navigator) {
+        console.log('yes1');
     }
 
-    // 条件演算子
-    a = (mon > 1) ? "big": "small";
-    console.log(a);
-
-    // カンマ演算子
-    for (var i = 0, j = 0; i < 10; i++) {
-        console.log(i);
-        console.log(j);
+    var properties = {
+        name: 'yamada',
+        age: 32,
+    };
+    if ('name' in properties) {
+        console.log('yes2');
     }
 </script>
